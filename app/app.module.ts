@@ -13,6 +13,8 @@ import { ProtectedComponent } from './components/others/protected.component';
 
 import { routing } from './app.routing';
 
+import { AuthGuard } from './services/authGuard/auth.guard';
+
 
 
 
@@ -25,6 +27,7 @@ import { routing } from './app.routing';
     SignUpComponent,
     ProtectedComponent
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [ AuthGuard ]
 })
 export class AppModule { }
