@@ -1,1 +1,19 @@
 <h3>Sign Up component</h3>
+<h3>Please sign up to use all features</h3>
+<form  (ngSubmit)="onSignup()">
+    <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input  type="email" id="email" name="email" [(ngModel)]="email" class="form-control">
+        <!--<span *ngIf="!email.pristine && email.errors != null && email.errors['noEmail']">Invalid mail address</span>-->
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input  type="password" id="password" name="password" [(ngModel)]="password" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="password_confirmation">Confirm Password</label>
+        <input  type="password" id="password_confirmation" name="password_confirmation" [(ngModel)]="password_confirmation" class="form-control">
+        <!--<span *ngIf="!confirmPassword.pristine && confirmPassword.errors != null && confirmPassword.errors['passwordsNotMatch']">Passwords do not match</span>-->
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
