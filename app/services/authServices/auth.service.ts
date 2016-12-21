@@ -62,10 +62,19 @@ export class AuthService {
                     "uid": response.headers.get('uid')
                 };
                 localStorage.setItem('authData', JSON.stringify(authData));
-                this._isLoggedIn =
+                this._isLoggedIn =  true;
                 //localStorage.setItem('isAuthenticated', JSON.stringify(true));
                 console.log(authData);
             });
+    }
+
+    logOut(){
+      this.http.delete( this.rootApiUrl + 'auth/sign_out', { headers: this.getHeaders() })
+        .map(res => {
+          localStorage.removeItem('authData');
+          console.log(res);
+          this._isLoggedIn = false;
+        });
     }
 
     isLoggedIn(){
