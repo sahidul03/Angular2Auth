@@ -18,7 +18,10 @@ export class HeaderComponent{
     }
 
     logOut(){
-      this._AuthService.logOut();
+        console.log("logout clicked");
+        this._AuthService.logOut().subscribe(res => {
+            console.log(res);
+        })
     }
 
 }

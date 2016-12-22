@@ -22,11 +22,16 @@ export class AuthService {
 
     getHeaders(){
         var authData = JSON.parse(localStorage.getItem('authData'));
-        var headers = new Headers({
-            "access-token": authData['access-token'],
-            "client": authData.client,
-            "uid": authData.uid
-        });
+        if(authData != null){
+            var headers = new Headers({
+                "access-token": authData['access-token'],
+                "client": authData.client,
+                "uid": authData.uid
+            });
+        }else{
+            var headers = new Headers();
+        }
+
         headers.append('Content-Type','application/json');
         return headers;
     }
@@ -69,7 +74,7 @@ export class AuthService {
     }
 
     logOut(){
-      this.http.delete( this.rootApiUrl + 'auth/sign_out', { headers: this.getHeaders() })
+      return this.http.delete( this.rootApiUrl + 'auth/sign_out', { headers: this.getHeaders() })
         .map(res => {
           localStorage.removeItem('authData');
           console.log(res);

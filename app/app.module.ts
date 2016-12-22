@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 
+import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/common/header.component';
 import { SignInComponent } from './components/common/signin.component';
 import { SignUpComponent } from './components/common/signup.component';
@@ -26,7 +27,8 @@ import { AuthService } from './services/authServices/auth.service';
     HeaderComponent,
     SignInComponent,
     SignUpComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    HomeComponent
   ],
   bootstrap:    [ AppComponent ],
   providers: [ AuthGuard, AuthService ]
