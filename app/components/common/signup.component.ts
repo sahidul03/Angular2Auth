@@ -42,5 +42,7 @@ export class SignUpComponent{
         );
     }
 
-    ngOnInit(): any {}
+    ngOnInit(): void {
+
+    }
 }
