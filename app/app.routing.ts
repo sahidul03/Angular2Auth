@@ -8,20 +8,28 @@ import { SignUpComponent } from './components/common/signup.component';
 import { ProtectedComponent } from './components/others/protected.component';
 
 import { AuthGuard } from './services/authGuard/auth.guard';
+import { SignInGuard } from './services/signInGuard/signIn.guard';
 
 const AppRoutes: Routes = [
     {
         path: '',
+        redirectTo: '/signin',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
         component: HomeComponent,
         canActivate: [AuthGuard]
     },
     {
         path: 'signin',
-        component: SignInComponent
+        component: SignInComponent,
+        canActivate: [SignInGuard]
     },
     {
         path: 'signup',
-        component: SignUpComponent
+        component: SignUpComponent,
+        canActivate: [SignInGuard]
     },
     {
         path: 'protected',
