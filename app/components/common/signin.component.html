@@ -1,6 +1,9 @@
 <h3> Sign In page </h3>
 <h3>Please sign in to use all features</h3>
 <form (ngSubmit)="onSignin()">
+    <div *ngIf="errors.length > 0"  class="alert alert-danger">
+        <p *ngFor="let error of errors"> {{ error }} </p>
+    </div>
     <div class="form-group">
         <label for="email">E-Mail</label>
         <input type="email" id="email" name="email" [(ngModel)]="email" class="form-control">

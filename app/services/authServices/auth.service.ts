@@ -50,8 +50,12 @@ export class AuthService {
                 };
                 localStorage.setItem('authData', JSON.stringify(authData));
                 //localStorage.setItem('isAuthenticated', JSON.stringify(true));
-                console.log(authData);
-            });
+                return response.json();
+            },
+            error => {
+                return error.json();
+            }
+        );
     }
 
     signUp(signupInfo: any){
