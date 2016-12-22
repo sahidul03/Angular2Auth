@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from'../../services/authServices/auth.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class SignInComponent {
     password: string;
     errors: any;
 
-    constructor(private _AuthService: AuthService) {
+    constructor(private _AuthService: AuthService, private _Router: Router) {
         this.email = '';
         this.password = '';
         this.errors = []
@@ -25,6 +26,7 @@ export class SignInComponent {
             response =>  {
                 console.log("Success Response " + response);
                 console.log(response);
+                this._Router.navigate(['/']);
             },
             error => {
                 console.log("Error happened " + error);

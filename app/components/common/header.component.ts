@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/authServices/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from '../../services/authServices/auth.service';
 })
 
 export class HeaderComponent{
-    constructor(private _AuthService: AuthService){
+    constructor(private _AuthService: AuthService, private _Router: Router){
 
     }
 
@@ -20,7 +21,7 @@ export class HeaderComponent{
     logOut(){
         console.log("logout clicked");
         this._AuthService.logOut().subscribe(res => {
-            console.log(res);
+            this._Router.navigate(['/signin']);
         })
     }
 

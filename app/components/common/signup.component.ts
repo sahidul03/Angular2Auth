@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import { AuthService } from '../../services/authServices/auth.service';
 
@@ -14,7 +15,7 @@ export class SignUpComponent{
     password_confirmation: string;
     errors: any;
 
-    constructor(private _AuthService: AuthService) {
+    constructor(private _AuthService: AuthService, private _Router: Router) {
         this.email = '';
         this.password = '';
         this.password_confirmation = '';
@@ -30,6 +31,7 @@ export class SignUpComponent{
                 response =>  {
                 console.log("Success Response " + response);
                 console.log(response);
+                    this._Router.navigate(['/']);
             },
                 error => {
                 console.log("Error happened " + error);
