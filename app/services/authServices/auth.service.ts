@@ -73,8 +73,12 @@ export class AuthService {
                 localStorage.setItem('authData', JSON.stringify(authData));
                 this._isLoggedIn =  true;
                 //localStorage.setItem('isAuthenticated', JSON.stringify(true));
-                console.log(authData);
-            });
+                return response.json();
+            },
+                error => {
+                return error.json();
+            }
+        );
     }
 
     logOut(){

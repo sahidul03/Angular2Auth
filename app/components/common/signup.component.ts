@@ -12,6 +12,7 @@ export class SignUpComponent{
     email: string;
     password: string;
     password_confirmation: string;
+    errors: any;
 
     constructor(private _AuthService: AuthService) {
         this.email = '';
@@ -25,9 +26,18 @@ export class SignUpComponent{
             password: this.password,
             password_confirmation: this.password_confirmation
         };
-        this._AuthService.signUp(signupInfo).subscribe(res => {
-            console.log(res);
-        })
+        this._AuthService.signUp(signupInfo).subscribe(
+                response =>  {
+                console.log("Success Response " + response);
+                console.log(response);
+            },
+                error => {
+                console.log("Error happened " + error);
+                this.errors = error.json().errors;
+                console.log(this.errors);
+            },
+            function() { console.log("the subscription is completed")}
+        );
     }
 
     ngOnInit(): any {}

@@ -1,19 +1,29 @@
-<h3>Sign Up component</h3>
-<h3>Please sign up to use all features</h3>
-<form  (ngSubmit)="onSignup()">
-    <div class="form-group">
-        <label for="email">E-Mail</label>
-        <input  type="email" id="email" name="email" [(ngModel)]="email" class="form-control">
-        <!--<span *ngIf="!email.pristine && email.errors != null && email.errors['noEmail']">Invalid mail address</span>-->
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input  type="password" id="password" name="password" [(ngModel)]="password" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="password_confirmation">Confirm Password</label>
-        <input  type="password" id="password_confirmation" name="password_confirmation" [(ngModel)]="password_confirmation" class="form-control">
-        <!--<span *ngIf="!confirmPassword.pristine && confirmPassword.errors != null && confirmPassword.errors['passwordsNotMatch']">Passwords do not match</span>-->
-    </div>
-    <button type="submit" class="btn btn-primary">Sign Up</button>
-</form>
+<div class="jumbotron">
+    <h3>Please sign up to use all features</h3>
+    <form  (ngSubmit)="onSignup()">
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input  type="email" id="email" name="email" [(ngModel)]="email" class="form-control">
+            <div *ngIf="errors && errors.email && errors.email.length > 0 " class="alert alert-danger">
+                <span>Email {{ errors.email[0] }}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input  type="password" id="password" name="password" [(ngModel)]="password" class="form-control">
+            <div *ngIf="errors && errors.password && errors.password.length > 0 " class="alert alert-danger">
+                <span>Password {{ errors.password[0] }}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password_confirmation">Confirm Password</label>
+            <input  type="password" id="password_confirmation"
+                    name="password_confirmation"
+                    [(ngModel)]="password_confirmation" class="form-control">
+            <div *ngIf="errors && errors.password_confirmation && errors.password_confirmation.length > 0 " class="alert alert-danger">
+                <span>Password confirmation {{ errors.password_confirmation[0] }}</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+</div>
