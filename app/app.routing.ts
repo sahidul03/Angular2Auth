@@ -13,7 +13,7 @@ import { SignInGuard } from './services/signInGuard/signIn.guard';
 const AppRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/signin',
+        redirectTo: '/home',
         pathMatch: 'full'
     },
     {

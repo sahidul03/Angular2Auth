@@ -82,6 +82,7 @@ export class AuthService {
     }
 
     logOut(){
+      console.log(this.rootApiUrl);
       return this.http.delete( this.rootApiUrl + 'auth/sign_out', { headers: this.getHeaders() })
         .map(res => {
           localStorage.removeItem('authData');
@@ -92,6 +93,14 @@ export class AuthService {
 
     isLoggedIn(){
         return this._isLoggedIn;
+    }
+
+    isAuthenticated(){
+      if(localStorage.getItem('authData')){
+        return true;
+      }else{
+        return false;
+      }
     }
 
 }

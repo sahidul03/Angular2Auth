@@ -11,9 +11,9 @@ export class SignInGuard implements CanActivate {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<boolean>|boolean {
-        console.log('sign in guard '+ this._AuthService.isLoggedIn())
-        if(this._AuthService.isLoggedIn()){
-            this._Router.navigate(['/']);
+        console.log('sign in guard '+ this._AuthService.isAuthenticated())
+        if(this._AuthService.isAuthenticated()){
+            this._Router.navigate(['/home']);
             return false
         }else{
             return true;
