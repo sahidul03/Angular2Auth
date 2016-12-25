@@ -17,7 +17,12 @@ export class AuthService {
             .subscribe(res => {
                 console.log(res);
                 this._isLoggedIn = true;
-            });
+            },
+          error => {
+            localStorage.removeItem('authData');
+            this._isLoggedIn = false;
+          }
+        );
     }
 
     getHeaders(){
@@ -101,6 +106,10 @@ export class AuthService {
       }else{
         return false;
       }
+    }
+
+    rootApi(){
+        return this.rootApiUrl;
     }
 
 }

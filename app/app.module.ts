@@ -11,12 +11,15 @@ import { HeaderComponent } from './components/common/header.component';
 import { SignInComponent } from './components/common/signin.component';
 import { SignUpComponent } from './components/common/signup.component';
 import { ProtectedComponent } from './components/others/protected.component';
+import { GetHousesComponent } from './components/houses/getHouses.component';
+
 
 import { routing } from './app.routing';
 
 import { SignInGuard } from './services/signInGuard/signIn.guard';
 import { AuthGuard } from './services/authGuard/auth.guard';
 import { AuthService } from './services/authServices/auth.service';
+import { HouseService } from './services/apiServices/house.service';
 
 
 
@@ -29,9 +32,10 @@ import { AuthService } from './services/authServices/auth.service';
     SignInComponent,
     SignUpComponent,
     ProtectedComponent,
-    HomeComponent
+    HomeComponent,
+    GetHousesComponent
   ],
   bootstrap:    [ AppComponent ],
-  providers: [ AuthGuard, AuthService, SignInGuard ]
+  providers: [ AuthGuard, AuthService, SignInGuard, HouseService ]
 })
 export class AppModule { }
