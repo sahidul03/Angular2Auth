@@ -1,2 +1,16 @@
-<h4>All house</h4>
-<h5 *ngIf="houses">{{ houses.length }}</h5>
+<div class="row" *ngIf="houses">
+    <div class="col-md-6 col-md-offset-3 house_row"
+         *ngFor="let house of houses">
+        <div class="row">
+            <div class="col-md-8">
+                <h5>{{ house.title }}</h5>
+            </div>
+            <div class="col-md-4">
+                <a class="thumbnail">
+                    <img class="img-responsive" src="../images/demoHouse.jpg">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>

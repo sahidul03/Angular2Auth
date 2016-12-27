@@ -3,3 +3,14 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+
+.house_row{
+  border: 1px solid #dadada;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.house_row:hover{
+  -webkit-box-shadow: 0.15px 0.15px 23px 0px rgba(97,173,115,1);
+  -moz-box-shadow: 0.15px 0.15px 23px 0px rgba(97,173,115,1);
+  box-shadow: 0.15px 0.15px 23px 0px rgba(97,173,115,1);
+}
