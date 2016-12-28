@@ -12,6 +12,7 @@ import { SignInComponent } from './components/common/signin.component';
 import { SignUpComponent } from './components/common/signup.component';
 import { ProtectedComponent } from './components/others/protected.component';
 import { GetHousesComponent } from './components/houses/getHouses.component';
+import { SingleHouseComponent } from './components/houses/singleHouse/singleHouse.component';
 
 
 import { routing } from './app.routing';
@@ -33,7 +34,8 @@ import { HouseService } from './services/apiServices/house.service';
     SignUpComponent,
     ProtectedComponent,
     HomeComponent,
-    GetHousesComponent
+    GetHousesComponent,
+    SingleHouseComponent
   ],
   bootstrap:    [ AppComponent ],
   providers: [ AuthGuard, AuthService, SignInGuard, HouseService ]

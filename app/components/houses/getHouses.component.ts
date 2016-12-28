@@ -24,7 +24,7 @@ export class GetHousesComponent {
                 error => {
                 console.log(error.json());
             },
-            function() { console.log("Geting all houses")}
+            function() { console.log("Getting all houses")}
         );
     }
 

@@ -11,7 +11,7 @@
                    <span class="label_style"> Bedroom: {{ house.bedroom }}</span><br>
                    <span class="label_style"> Bathroom: {{ house.bathroom }}</span><br>
                     <span class="label_style">Balcony:  {{ house.balcony }}</span><br>
-                    <span class="label_style"><span class="glyphicon glyphicon-calendar"></span> {{ house.created_at }} ago</span><br>
+                    <span class="label_style"><span class="glyphicon glyphicon-calendar"></span> {{ house.created_at | date }}</span><br>
                 </div>
                 <div class="col-md-6 no-padding-right border_left">
                     <span class="label_style">Living area:  {{ house.living_area }} sq-ft</span><br>

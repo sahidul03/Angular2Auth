@@ -29,4 +29,15 @@ export class HouseService {
         );
     }
 
+    getSingleHouse(){
+        return this.http.get( this.rootApiUrl + 'api/house', {headers: this.headers})
+            .map(response => {
+                return response;
+            },
+                error => {
+                return error;
+            }
+        );
+    }
+
 }
