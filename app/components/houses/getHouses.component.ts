@@ -18,6 +18,7 @@ export class GetHousesComponent {
     getHouses(){
         this._HouseService.getHouses().subscribe(
                 response =>  {
+                    console.log(response.json());
                 this.houses = response.json();
             },
                 error => {

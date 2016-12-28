@@ -14,3 +14,44 @@ h1 {
   -moz-box-shadow: 0.15px 0.15px 23px 0px rgba(97,173,115,1);
   box-shadow: 0.15px 0.15px 23px 0px rgba(97,173,115,1);
 }
+.house_image_holder{
+  margin-top: 8px;
+}
+.no-padding-left{
+  padding-left: 0px !important;
+}
+.no-padding-right{
+  padding-right: 0px !important;
+}
+.house_title{
+  font-size: 17px;
+  font-weight: bold;
+  color: #4E7F98;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+.border_left{
+  border-left: 1px solid #dadada;
+}
+.label_style{
+  color: #608198;
+  font-size: 13px;
+}
+.house_rent_amount{
+  font-size: 15px;
+  font-weight: bold;
+  color: #7F8A92;
+}
+.house_ad_type_and_category{
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-top: 1px solid #dadada;
+  padding-top: 5px;
+  padding-bottom: 0px;
+  font-size: 12px;
+  color: #053E67;
+  text-transform: capitalize;
+}
+.house_address_value{
+  color: #9E4141;
+}

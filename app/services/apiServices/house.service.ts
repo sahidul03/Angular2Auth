@@ -19,7 +19,7 @@ export class HouseService {
     }
 
     getHouses(){
-        return this.http.get( this.rootApiUrl + 'api/houses')
+        return this.http.get( this.rootApiUrl + 'api/houses', {headers: this.headers})
             .map(response => {
                 return response;
             },
