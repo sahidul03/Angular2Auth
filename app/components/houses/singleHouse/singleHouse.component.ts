@@ -11,19 +11,22 @@ import { HouseService } from '../../../services/apiServices/house.service'
 
 export class SingleHouseComponent implements OnInit{
     message: string;
+    id: string;
     house: any;
     constructor(private _HouseService: HouseService, private _ActivatedRoute: ActivatedRoute){
-        this.getSingleHouse();
+
     }
 
     ngOnInit() {
         this._ActivatedRoute.params.subscribe(params => {
-            console.log(params);
+            this.id = params.id;
+            this.getSingleHouse(this.id);
+            console.log(this.id);
         });
     }
 
     getSingleHouse(){
-        this._HouseService.getSingleHouse().subscribe(
+        this._HouseService.getSingleHouse(this.id).subscribe(
                 response =>  {
                 console.log(response.json());
                 this.house = response.json();
