@@ -16,7 +16,11 @@
     </div>
 </div>
 <div *ngIf="house" class="row">
-    <div class="col-md-3">Some thing new</div>
+    <div class="col-md-3">
+      <div class="filtering_tools">
+        <h3>Related Houses</h3>
+      </div>
+    </div>
     <div class="col-md-6 no-padding-left">
         <div class="col-md-12 no-padding-left no-padding-right single_house_image_holder">
             <a class="thumbnail">
@@ -46,10 +50,29 @@
     <div class="col-md-3 single_house_right_side">
         <span class="label_style"><span class="glyphicon glyphicon-calendar"></span> {{ house.created_at | date }}</span><br>
         <div class="single_house_address_section">
-            <span class="label_style_address"> Bedroom: {{ house.bedroom }}</span><br>
-            <span class="label_style_address"> Bathroom: {{ house.bathroom }}</span><br>
-            <span class="label_style_address">Balcony:  {{ house.balcony }}</span><br>
-            <span class="label_style_address">Living area:  {{ house.living_area }} sq-ft</span><br>
+          <div class="row">
+            <div class="col-md-6">
+              <span class="label_style_address"> Bedroom: {{ house.bedroom }}</span><br>
+              <span class="label_style_address"> Total room: {{ house.total_room }}</span><br>
+              <span class="label_style_address"> Bathroom: {{ house.bathroom }}</span><br>
+              <span class="label_style_address">Balcony:  {{ house.balcony }}</span><br>
+            </div>
+            <div class="col-md-6 border_left">
+              <span class="label_style_address"> Furnished: {{ house.car_parking ? 'Yes' : 'No' }}</span><br>
+              <span class="label_style_address"> Car parking: {{ house.car_parking }}</span><br>
+              <span class="label_style_address"> Floor: {{ house.floor }}</span><br>
+              <span class="label_style_address"> Total floor: {{ house.total_floor }}</span><br>
+            </div>
+          </div>
+          <div class="row margin_bottom10 margin_top15">
+            <div class="col-md-12">
+              <span class="label_style_address">Living area:  {{ house.living_area }} sq-ft</span><br>
+              <span class="label_style_address"> Land size: {{ house.land_size }} sq-ft</span><br>
+            </div>
+          </div>
+
+
+
             <span class="label_style_address">Address: <span class="house_address_value"> {{ house.address }}</span></span><br>
         </div>
         <div class="single_house_contact_info">

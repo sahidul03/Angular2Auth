@@ -1,9 +1,11 @@
 <div class="row" *ngIf="houses">
     <div class="col-md-3">
-        Filtering tools
+      <div class="filtering_tools">
+          <h3>Filtering Tools</h3>
+      </div>
     </div>
 
-    <div class="col-md-6 no-padding-left no-padding-left">
+    <div class="col-md-6">
         <div class="row house_row" *ngFor="let house of houses">
 
             <a [routerLink]="['/house', house.id ]">
@@ -35,6 +37,8 @@
 
     </div>
     <div class="col-md-3">
-
+      <a class="thumbnail">
+        <img class="img-responsive" src="../images/ad.jpg">
+      </a>
     </div>
 </div>

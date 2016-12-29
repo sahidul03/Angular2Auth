@@ -206,3 +206,20 @@ h1 {
 .single_house_contact_info .contact_info_title{
   color: #000066;
 }
+.filtering_tools{
+  border: 1px solid #dadada;
+  padding: 10px;
+  min-height: 400px;
+}
+.margin_top10{
+  margin-top: 10px;
+}
+.margin_top15{
+  margin-top: 15px;
+}
+.margin_bottom10{
+  margin-bottom: 10px;
+}
+.margin_bottom15{
+  margin-bottom: 15px;
+}
