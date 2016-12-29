@@ -1,2 +1,81 @@
-<h4>Single House component</h4>
-<h4 *ngIf="house">Title: {{ house.title }}</h4>
+<div *ngIf="!house" class="row">
+    <div class="spinner">
+        <div class="main-spinner__wrap--fs">
+            <div class="main-spinner main-spinner__md">
+                <svg class="main-spinner__md-top" height="60px" viewBox="0 0 13 13" width="60px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="1.30" cy="1.30" fill="white" r="1.30"></circle>
+                </svg>
+                <svg class="main-spinner__md-center" height="50px" viewBox="0 0 49 50" width="49px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 24.49 0.5C 38.01 0.5 48.98 11.59 48.98 25.26 48.98 38.94 38.01 50.02 24.49 50.02 10.97 50.02 0 38.94 0 25.26 0 11.59 10.97 0.5 24.49 0.5 24.49 0.5 24.49 0.5 24.49 0.5ZM 24.49 9.79C 16.04 9.79 9.18 16.72 9.18 25.26 9.18 33.81 16.04 40.74 24.49 40.74 32.94 40.74 39.79 33.81 39.79 25.26 39.79 16.72 32.94 9.79 24.49 9.79 24.49 9.79 24.49 9.79 24.49 9.79Z" fill="white" fillrule="evenodd"></path>
+                </svg>
+                <svg class="main-spinner__md-bottom" height="25px" viewBox="0 0 25 25" width="25px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 12.49 0.02C 19.31 0.02 24.85 5.61 24.85 12.51 24.85 19.41 19.31 25.01 12.49 25.01 5.66 25.01 0.13 19.41 0.13 12.51 0.13 5.61 5.66 0.02 12.49 0.02 12.49 0.02 12.49 0.02 12.49 0.02Z" fill="white" fillrule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="house" class="row">
+    <div class="col-md-3">Some thing new</div>
+    <div class="col-md-6 no-padding-left">
+        <div class="col-md-12 no-padding-left no-padding-right single_house_image_holder">
+            <a class="thumbnail">
+                <img class="img-responsive" src="../images/demoHouse.jpg">
+            </a>
+        </div>
+        <div class="col-md-12  single_house_details">
+            <div class="col-md-12 no-padding-right no-padding-left price_tag_box border_bottom">
+                <div class="col-md-4">
+                    <span class="label_style">For: <span class=""> {{ house.ad_type | uppercase }}</span></span>
+                </div>
+                <div class="col-md-4 border_left">
+                     <span class="label_style">{{house.house_category}}</span>
+                </div>
+                <div class="col-md-4 border_left"> <span class="house_rent_amount"> Rent:  {{ house.rent }} Tk </span> </div>
+            </div>
+
+            <div class="col-md-12 no-padding-right no-padding-left">
+                <div class="single_house_title"> {{ house.title }}</div>
+                <p class="house_details">
+                    {{ house.details }}
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3 single_house_right_side">
+        <span class="label_style"><span class="glyphicon glyphicon-calendar"></span> {{ house.created_at | date }}</span><br>
+        <div class="single_house_address_section">
+            <span class="label_style_address"> Bedroom: {{ house.bedroom }}</span><br>
+            <span class="label_style_address"> Bathroom: {{ house.bathroom }}</span><br>
+            <span class="label_style_address">Balcony:  {{ house.balcony }}</span><br>
+            <span class="label_style_address">Living area:  {{ house.living_area }} sq-ft</span><br>
+            <span class="label_style_address">Address: <span class="house_address_value"> {{ house.address }}</span></span><br>
+        </div>
+        <div class="single_house_contact_info">
+            <h5 class="contact_info_title">Contact Information</h5>
+            <span class="label_style_address">Name: <span class="contact_value"> {{ house.creator_name }}</span></span><br>
+            <span class="label_style_address">Phone: <span class="contact_value"> {{ house.creator_phone }}</span></span><br>
+            <span class="label_style_address">Email: <span class="contact_value"> {{ house.creator_email }}</span></span><br>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
