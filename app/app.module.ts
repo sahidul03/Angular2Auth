@@ -15,7 +15,7 @@ import { GetHousesComponent } from './components/houses/getHouses.component';
 import { SingleHouseComponent } from './components/houses/singleHouse/singleHouse.component';
 
 
-import { routing } from './app.routing';
+import { AppRoutingModule } from './app.routing';
 
 import { SignInGuard } from './services/signInGuard/signIn.guard';
 import { AuthGuard } from './services/authGuard/auth.guard';
@@ -26,7 +26,7 @@ import { HouseService } from './services/apiServices/house.service';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule, HttpModule, routing ],
+  imports:      [ BrowserModule, FormsModule, RouterModule, HttpModule, AppRoutingModule ],
   declarations: [
     AppComponent,
     HeaderComponent,

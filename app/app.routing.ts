@@ -1,7 +1,5 @@
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-
+import { NgModule }             from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/common/signin.component';
 import { SignUpComponent } from './components/common/signup.component';
@@ -11,7 +9,7 @@ import { SingleHouseComponent } from './components/houses/singleHouse/singleHous
 import { AuthGuard } from './services/authGuard/auth.guard';
 import { SignInGuard } from './services/signInGuard/signIn.guard';
 
-const AppRoutes: Routes = [
+const routes: Routes = [
     {
         path: '',
         redirectTo: '/home',
@@ -44,4 +42,8 @@ const AppRoutes: Routes = [
     }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(AppRoutes);
+@NgModule({
+    imports: [ RouterModule.forRoot(routes) ],
+    exports: [ RouterModule ]
+})
+export class AppRoutingModule {}

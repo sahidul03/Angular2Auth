@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { Component, OnInit }      from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location }               from '@angular/common';
 import { HouseService } from '../../../services/apiServices/house.service'
 
 @Component({
@@ -13,19 +15,23 @@ export class SingleHouseComponent implements OnInit{
     message: string;
     id: string;
     house: any;
-    constructor(private _HouseService: HouseService, private _ActivatedRoute: ActivatedRoute){
 
+    constructor(
+        private _HouseService: HouseService,
+        private route: ActivatedRoute,
+        private location: Location
+    ) {}
+
+    ngOnInit(): void {
+        this.id = this.route.snapshot.params['id'];
+        this.getSingleHouse(this.id);
     }
 
-    ngOnInit() {
-        this._ActivatedRoute.params.subscribe(params => {
-            this.id = params.id;
-            this.getSingleHouse(this.id);
-            console.log(this.id);
-        });
+    goBack(): void {
+        this.location.back();
     }
 
-    getSingleHouse(){
+    getSingleHouse(id){
         this._HouseService.getSingleHouse(this.id).subscribe(
                 response =>  {
                 console.log(response.json());
