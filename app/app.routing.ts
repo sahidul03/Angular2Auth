@@ -17,8 +17,7 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent,
-        canActivate: [AuthGuard]
+        component: HomeComponent
     },
     {
         path: 'signin',
@@ -37,8 +36,7 @@ const routes: Routes = [
     },
     {
         path: 'house/:id',
-        component: SingleHouseComponent,
-        canActivate: [AuthGuard]
+        component: SingleHouseComponent
     }
 ];
 

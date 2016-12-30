@@ -223,3 +223,13 @@ h1 {
 .margin_bottom15{
   margin-bottom: 15px;
 }
+.header_profile_select{
+  border: 1px solid #101010;
+  background: #101010;
+  height: 50px;
+  color: gray;
+  width: 80px;
+}
+.options{
+  height: 25px;
+}
