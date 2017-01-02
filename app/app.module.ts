@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/common/header.component';
 import { SignInComponent } from './components/common/signin.component';
 import { SignUpComponent } from './components/common/signup.component';
+import { PasswordChangeComponent } from './components/common/users/passwordChange/passwordChange.component';
 import { ProtectedComponent } from './components/others/protected.component';
 import { GetHousesComponent } from './components/houses/getHouses.component';
 import { SingleHouseComponent } from './components/houses/singleHouse/singleHouse.component';
@@ -35,7 +36,8 @@ import { HouseService } from './services/apiServices/house.service';
     ProtectedComponent,
     HomeComponent,
     GetHousesComponent,
-    SingleHouseComponent
+    SingleHouseComponent,
+    PasswordChangeComponent
   ],
   bootstrap:    [ AppComponent ],
   providers: [ AuthGuard, AuthService, SignInGuard, HouseService ]

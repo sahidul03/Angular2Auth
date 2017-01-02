@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/common/signin.component';
 import { SignUpComponent } from './components/common/signup.component';
+import { PasswordChangeComponent } from './components/common/users/passwordChange/passwordChange.component';
 import { ProtectedComponent } from './components/others/protected.component';
 import { SingleHouseComponent } from './components/houses/singleHouse/singleHouse.component';
 
@@ -37,6 +38,11 @@ const routes: Routes = [
     {
         path: 'house/:id',
         component: SingleHouseComponent
+    },
+    {
+        path: 'change-password',
+        component: PasswordChangeComponent,
+        canActivate: [AuthGuard]
     }
 ];
 

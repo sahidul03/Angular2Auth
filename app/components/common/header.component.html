@@ -25,7 +25,7 @@
                   <ul class="dropdown-menu navbar-inverse dropdown-menu-right" aria-labelledby="dropdownMenuDivider">
                       <li><a>Profile</a></li>
                       <li><a>Settings</a></li>
-                      <li><a>Dashboard</a></li>
+                      <li ><a routerLink="/change-password">Password change</a></li>
                       <li role="separator" class="divider"></li>
                       <li *ngIf="isAuthenticated()" (click)="logOut()"><a class="cursor_pointer">Logout</a></li>
                   </ul>

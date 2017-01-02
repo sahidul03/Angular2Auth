@@ -67,6 +67,19 @@ export class AuthService {
         );
     }
 
+    changePassword(passwordInfo: any){
+        console.log(passwordInfo);
+        return this.http.put( this.rootApiUrl + 'auth/password', passwordInfo, { headers: this.getHeaders() })
+            .map(response => {
+                return response.json();
+            },
+                error => {
+                return error.json();
+            }
+        );
+    }
+
+
     signUp(signupInfo: any){
         console.log(signupInfo);
         return this.http.post( this.rootApiUrl + 'auth', signupInfo)
