@@ -233,3 +233,14 @@ h1 {
 .options{
   height: 25px;
 }
+
+.dropdown-menu>li>a{
+  color: #9d9d9d !important;
+}
+
+.cursor_pointer{
+  cursor: pointer;
+}
+.position_right_zero{
+  right: 0 !important;
+}

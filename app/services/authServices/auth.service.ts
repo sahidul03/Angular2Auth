@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class AuthService {
     rootApiUrl: string;
     private _isLoggedIn: boolean;
+    loggedInUserInfo: any;
 
 
     constructor(private http: Http){
@@ -15,7 +16,8 @@ export class AuthService {
         this.rootApiUrl = 'http://localhost:5000/';
         this.http.get( this.rootApiUrl + 'auth/validate_token', { headers: this.getHeaders() })
             .subscribe(res => {
-                console.log(res);
+                console.log(res.json());
+                this.loggedInUserInfo = res.json().data;
                 this._isLoggedIn = true;
             },
           error => {
@@ -55,6 +57,7 @@ export class AuthService {
                     "uid": response.headers.get('uid')
                 };
                 localStorage.setItem('authData', JSON.stringify(authData));
+                this.loggedInUserInfo = response.json().data;
                 //localStorage.setItem('isAuthenticated', JSON.stringify(true));
                 return response.json();
             },
@@ -78,6 +81,7 @@ export class AuthService {
                 };
                 localStorage.setItem('authData', JSON.stringify(authData));
                 this._isLoggedIn =  true;
+                this.loggedInUserInfo = response.json().data;
                 //localStorage.setItem('isAuthenticated', JSON.stringify(true));
                 return response.json();
             },

@@ -9,12 +9,14 @@ import { AuthService } from '../../services/authServices/auth.service';
 })
 
 export class HeaderComponent{
+    loggedInUserInfo: any;
     constructor(private _AuthService: AuthService, private _Router: Router){
 
     }
 
     isAuthenticated(){
       console.log(this._AuthService.isLoggedIn());
+        this.loggedInUserInfo = this._AuthService.loggedInUserInfo;
       return this._AuthService.isLoggedIn();
     }
 
