@@ -25,7 +25,7 @@
                   <ul class="dropdown-menu navbar-inverse dropdown-menu-right" aria-labelledby="dropdownMenuDivider">
                       <li><a>Profile</a></li>
                       <li><a>Settings</a></li>
-                      <li ><a routerLink="/change-password">Password change</a></li>
+                      <li ><a routerLink="/change-password">Change password</a></li>
                       <li role="separator" class="divider"></li>
                       <li *ngIf="isAuthenticated()" (click)="logOut()"><a class="cursor_pointer">Logout</a></li>
                   </ul>
@@ -34,3 +34,20 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<div *ngIf="!serverRespondsFirstTime()" class="row">
+    <div class="spinner">
+        <div class="main-spinner__wrap--fs">
+            <div class="main-spinner main-spinner__md">
+                <svg class="main-spinner__md-top" height="60px" viewBox="0 0 13 13" width="60px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="1.30" cy="1.30" fill="white" r="1.30"></circle>
+                </svg>
+                <svg class="main-spinner__md-center" height="50px" viewBox="0 0 49 50" width="49px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 24.49 0.5C 38.01 0.5 48.98 11.59 48.98 25.26 48.98 38.94 38.01 50.02 24.49 50.02 10.97 50.02 0 38.94 0 25.26 0 11.59 10.97 0.5 24.49 0.5 24.49 0.5 24.49 0.5 24.49 0.5ZM 24.49 9.79C 16.04 9.79 9.18 16.72 9.18 25.26 9.18 33.81 16.04 40.74 24.49 40.74 32.94 40.74 39.79 33.81 39.79 25.26 39.79 16.72 32.94 9.79 24.49 9.79 24.49 9.79 24.49 9.79 24.49 9.79Z" fill="white" fillrule="evenodd"></path>
+                </svg>
+                <svg class="main-spinner__md-bottom" height="25px" viewBox="0 0 25 25" width="25px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 12.49 0.02C 19.31 0.02 24.85 5.61 24.85 12.51 24.85 19.41 19.31 25.01 12.49 25.01 5.66 25.01 0.13 19.41 0.13 12.51 0.13 5.61 5.66 0.02 12.49 0.02 12.49 0.02 12.49 0.02 12.49 0.02Z" fill="white" fillrule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>

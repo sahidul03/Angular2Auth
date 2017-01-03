@@ -8,10 +8,12 @@ export class AuthService {
     rootApiUrl: string;
     private _isLoggedIn: boolean;
     loggedInUserInfo: any;
+    serverResponds: boolean;
 
 
     constructor(private http: Http){
         this._isLoggedIn = false;
+        this.serverResponds = false;
         console.log('AuthService initialized......');
         this.rootApiUrl = 'http://localhost:5000/';
         this.http.get( this.rootApiUrl + 'auth/validate_token', { headers: this.getHeaders() })
@@ -19,10 +21,12 @@ export class AuthService {
                 console.log(res.json());
                 this.loggedInUserInfo = res.json().data;
                 this._isLoggedIn = true;
+                this.serverResponds  = true;
             },
           error => {
             localStorage.removeItem('authData');
             this._isLoggedIn = false;
+              this.serverResponds = true;
           }
         );
     }
@@ -116,6 +120,10 @@ export class AuthService {
 
     isLoggedIn(){
         return this._isLoggedIn;
+    }
+
+    serverRespondsFirstTime(){
+        return this.serverResponds;
     }
 
     isAuthenticated(){
