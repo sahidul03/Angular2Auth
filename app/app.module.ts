@@ -14,6 +14,8 @@ import { PasswordChangeComponent } from './components/common/users/passwordChang
 import { ProtectedComponent } from './components/others/protected.component';
 import { GetHousesComponent } from './components/houses/getHouses.component';
 import { SingleHouseComponent } from './components/houses/singleHouse/singleHouse.component';
+import { NewHouseComponent } from './components/dashboard/newHouse/newHouse.component';
+import { LeftPanelComponent } from './components/dashboard/common/leftPanel/leftPanel.component';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -37,7 +39,9 @@ import { HouseService } from './services/apiServices/house.service';
     HomeComponent,
     GetHousesComponent,
     SingleHouseComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    NewHouseComponent,
+    LeftPanelComponent
   ],
   bootstrap:    [ AppComponent ],
   providers: [ AuthGuard, AuthService, SignInGuard, HouseService ]

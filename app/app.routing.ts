@@ -6,6 +6,7 @@ import { SignUpComponent } from './components/common/signup.component';
 import { PasswordChangeComponent } from './components/common/users/passwordChange/passwordChange.component';
 import { ProtectedComponent } from './components/others/protected.component';
 import { SingleHouseComponent } from './components/houses/singleHouse/singleHouse.component';
+import { NewHouseComponent } from './components/dashboard/newHouse/newHouse.component';
 
 import { AuthGuard } from './services/authGuard/auth.guard';
 import { SignInGuard } from './services/signInGuard/signIn.guard';
@@ -42,6 +43,11 @@ const routes: Routes = [
     {
         path: 'change-password',
         component: PasswordChangeComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'newHouse',
+        component: NewHouseComponent,
         canActivate: [AuthGuard]
     }
 ];

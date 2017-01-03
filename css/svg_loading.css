@@ -1,0 +1,97 @@
+
+/* For SVG spinner -- START */
+.main-spinner__wrap--fs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center
+}
+
+.main-spinner__wrap--fs:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%
+}
+.main-spinner {
+    display: inline-block;
+    vertical-align: middle
+}
+.main-spinner__md {
+    position: relative;
+    width: 4.9rem;
+    height: 8.8rem;
+    opacity: 0.5
+}
+.main-spinner__md-top {
+    position: absolute;
+    top: 5px;
+    right: -5px;
+    -webkit-animation: spinner-rotate 2s infinite ease-in-out;
+    animation: spinner-rotate 2s infinite ease-in-out
+}
+.main-spinner__md-center {
+    position: absolute;
+    top: 1rem;
+    left: 0
+}
+.main-spinner__md-bottom {
+    position: absolute;
+    left: 1.2rem;
+    bottom: 0;
+    -webkit-animation: up-down 2s infinite cubic-bezier(0.36, 0.01, 0, 0.92);
+    animation: up-down 2s infinite cubic-bezier(0.36, 0.01, 0, 0.92)
+}
+
+
+/*rotate*/
+@keyframes up-down {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+    19% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+    40% {
+        -webkit-transform: translateY(15px);
+        transform: translateY(15px)
+    }
+    64% {
+        -webkit-transform: translateY(15px);
+        transform: translateY(15px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-webkit-keyframes spinner-rotate {
+    0% {
+        -webkit-transform: rotate(80deg);
+        transform: rotate(80deg)
+    }
+    100% {
+        -webkit-transform: rotate(1159deg);
+        transform: rotate(1159deg)
+    }
+}
+
+@keyframes spinner-rotate {
+    0% {
+        -webkit-transform: rotate(80deg);
+        transform: rotate(80deg)
+    }
+    100% {
+        -webkit-transform: rotate(1159deg);
+        transform: rotate(1159deg)
+    }
+}
+
+/* For SVG spinner -- END */
