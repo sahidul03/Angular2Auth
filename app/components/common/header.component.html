@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -14,7 +14,7 @@
                 <li><a [routerLink]="['/home']">Home</a></li>
                 <li ><a routerLink="/protected">Protected</a></li>
             </ul>
-          <ul class="nav navbar-nav pull-right">
+          <ul class="nav navbar-nav navbar-right">
             <li *ngIf="!isAuthenticated()" ><a [routerLink]="['/signin']">Sign In</a></li>
             <li *ngIf="!isAuthenticated()"><a [routerLink]="['/signup']">Sign Up</a></li>
               <li *ngIf="loggedInUserInfo && isAuthenticated()">
