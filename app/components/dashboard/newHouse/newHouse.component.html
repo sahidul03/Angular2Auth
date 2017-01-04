@@ -9,7 +9,227 @@
             </h1>
         </div>
         <div class="page-content inset">
+            <div class="jumbotron">
+                <form  (ngSubmit)="submitHouse()">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="title">House Title</label>
+                                <input  type="text" id="title"
+                                        name="form.title"
+                                        [(ngModel)]="form.title"
+                                        class="form-control"
+                                        placeholder="House Title">
+                                <div *ngIf="errors && errors.title && errors.title.length > 0 " class="alert alert-danger">
+                                    <span>House title {{ errors.title[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="details">House Details</label>
+                                <textarea id="details"
+                                          name="form.details"
+                                          [(ngModel)]="form.details"
+                                          class="form-control"
+                                          placeholder="House details"></textarea>
+                                <div *ngIf="errors && errors.details && errors.details.length > 0 " class="alert alert-danger">
+                                    <span>House details {{ errors.details[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div *ngIf="houseCategories"  class="form-group">
+                                <label for="house_category_id">House Category</label>
+                                <select id="house_category_id"
+                                        name="form.house_category_id"
+                                        [(ngModel)]="form.house_category_id"
+                                        class="form-control">
+                                    <option *ngFor="let category of houseCategories" value="{{category.id}}">{{category.name}}</option>
+                                </select>
+                                <div *ngIf="errors && errors.house_category_id && errors.house_category_id.length > 0 " class="alert alert-danger">
+                                    <span>House category {{ errors.house_category_id[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="ad_type">Ad Type</label>
+                                <select id="ad_type"
+                                        name="form.ad_type"
+                                        [(ngModel)]="form.ad_type"
+                                        class="form-control">
+                                    <option value="rent">For rent</option>
+                                    <option value="sale">For sale</option>
+                                    <option value="hire">For hire</option>
+                                    <option value="buy">For buy</option>
+                                </select>
+                                <div *ngIf="errors && errors.ad_type && errors.ad_type.length > 0 " class="alert alert-danger">
+                                    <span>Ad type {{ errors.ad_type[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="bed_room">No of bed room</label>
+                                <input  type="number"
+                                        id="bed_room"
+                                        name="form.bed_room"
+                                        [(ngModel)]="form.bed_room"
+                                        class="form-control"
+                                        placeholder="No of bed room">
+                                <div *ngIf="errors && errors.bed_room && errors.bed_room.length > 0 " class="alert alert-danger">
+                                    <span>Bed room {{ errors.bed_room[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="total_room">No of total room</label>
+                                <input  type="number"
+                                        id="total_room"
+                                        name="form.total_room"
+                                        [(ngModel)]="form.total_room"
+                                        class="form-control"
+                                        placeholder="No of total room">
+                                <div *ngIf="errors && errors.total_room && errors.total_room.length > 0 " class="alert alert-danger">
+                                    <span>Total room {{ errors.total_room[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="bathroom">No of bathroom</label>
+                                <input  type="number"
+                                        id="bathroom"
+                                        name="form.bathroom"
+                                        [(ngModel)]="form.bathroom"
+                                        class="form-control"
+                                        placeholder="No of bathroom">
+                                <div *ngIf="errors && errors.bathroom && errors.bathroom.length > 0 " class="alert alert-danger">
+                                    <span>Bathroom {{ errors.bathroom[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="balcony">No of Balcony</label>
+                                <input  type="number"
+                                        id="balcony"
+                                        name="form.balcony"
+                                        [(ngModel)]="form.balcony"
+                                        class="form-control"
+                                        placeholder="No of balcony">
+                                <div *ngIf="errors && errors.balcony && errors.balcony.length > 0 " class="alert alert-danger">
+                                    <span>Balcony {{ errors.balcony[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="car_parking">No of car parking space</label>
+                                <input  type="number"
+                                        id="car_parking"
+                                        name="form.car_parking"
+                                        [(ngModel)]="form.car_parking"
+                                        class="form-control"
+                                        placeholder="No of car parking space">
+                                <div *ngIf="errors && errors.car_parking && errors.car_parking.length > 0 " class="alert alert-danger">
+                                    <span>Car parking space {{ errors.car_parking[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="floor">Which floor</label>
+                                <input  type="number"
+                                        id="floor"
+                                        name="form.floor"
+                                        [(ngModel)]="form.floor"
+                                        class="form-control"
+                                        placeholder="Which floor">
+                                <div *ngIf="errors && errors.floor && errors.floor.length > 0 " class="alert alert-danger">
+                                    <span>Floor {{ errors.floor[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="total_floor">No of total floor of this house</label>
+                                <input  type="number"
+                                        id="total_floor"
+                                        name="form.total_floor"
+                                        [(ngModel)]="form.total_floor"
+                                        class="form-control"
+                                        placeholder="No of total floor of this house">
+                                <div *ngIf="errors && errors.total_floor && errors.total_floor.length > 0 " class="alert alert-danger">
+                                    <span>Total floor {{ errors.total_floor[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="living_area">Living area (square-feet)</label>
+                                <input  type="number"
+                                        id="living_area"
+                                        name="form.living_area"
+                                        [(ngModel)]="form.living_area"
+                                        class="form-control"
+                                        placeholder="Living area (square-feet)">
+                                <div *ngIf="errors && errors.living_area && errors.living_area.length > 0 " class="alert alert-danger">
+                                    <span>Living area {{ errors.living_area[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="land_size">Land size (square-feet)</label>
+                                <input  type="number"
+                                        id="land_size"
+                                        name="form.land_size"
+                                        [(ngModel)]="form.land_size"
+                                        class="form-control"
+                                        placeholder="Land size (square-feet)">
+                                <div *ngIf="errors && errors.land_size && errors.land_size.length > 0 " class="alert alert-danger">
+                                    <span>Land size {{ errors.land_size[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="rent">Rent (Tk)</label>
+                                <input  type="number"
+                                        id="rent"
+                                        name="form.rent"
+                                        [(ngModel)]="form.rent"
+                                        class="form-control"
+                                        placeholder="Rent of your house">
+                                <div *ngIf="errors && errors.rent && errors.rent.length > 0 " class="alert alert-danger">
+                                    <span>Rent {{ errors.rent[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="land_size">Full furnished</label><br>
+                                <label class="radio-inline">
+                                    <input type="radio" name="form.isFurnished"
+                                           [(ngModel)]="form.isFurnished" [value]="true">Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="form.isFurnished"
+                                           [(ngModel)]="form.isFurnished" [value]="false">No
+                                </label>
+                                <div *ngIf="errors && errors.isFurnished && errors.isFurnished.length > 0 " class="alert alert-danger">
+                                    <span>Is furnished {{ errors.isFurnished[0] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create house</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

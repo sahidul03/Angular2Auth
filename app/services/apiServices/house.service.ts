@@ -40,4 +40,15 @@ export class HouseService {
         );
     }
 
+    getHouseCategories(){
+        return this.http.get( this.rootApiUrl + 'api/house_categories', {headers: this.headers})
+            .map(response => {
+                return response;
+            },
+                error => {
+                return error;
+            }
+        );
+    }
+
 }
