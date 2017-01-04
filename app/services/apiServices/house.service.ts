@@ -51,4 +51,15 @@ export class HouseService {
         );
     }
 
+    createHouse(data){
+      return this.http.post( this.rootApiUrl + 'api/houses', {house: data}, {headers: this.headers})
+        .map(response => {
+          return response;
+        },
+          error => {
+          return error;
+        }
+      );
+    }
+
 }

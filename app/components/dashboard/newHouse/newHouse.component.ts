@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { HouseService } from '../../../services/apiServices/house.service'
 
 @Component({
@@ -11,8 +12,9 @@ import { HouseService } from '../../../services/apiServices/house.service'
 export class NewHouseComponent {
     form: any;
     houseCategories: any;
+    errors: any;
 
-    constructor(private _HouseService: HouseService){
+    constructor(private _HouseService: HouseService, private _Router: Router){
         this.form = {
             isFurnished: false,
             ad_type: 'rent',
@@ -49,5 +51,16 @@ export class NewHouseComponent {
 
     submitHouse(){
         console.log(this.form);
+      this._HouseService.createHouse(this.form).subscribe(
+          response =>  {
+          console.log(response.json());
+            this._Router.navigate(['/home']);
+        },
+          error => {
+            this.errors = error.json();
+          console.log(error.json());
+        },
+        function() { console.log("Getting all houses")}
+      );
     }
 }
