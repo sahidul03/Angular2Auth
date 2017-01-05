@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationsService } from 'angular2-notifications';
+import { NotificationsService, PushNotificationsService } from 'angular2-notifications';
 
 @Component({
     moduleId: module.id,
@@ -8,11 +8,12 @@ import { NotificationsService } from 'angular2-notifications';
 })
 
 export class ProtectedComponent  implements OnInit{
-    constructor(private _NotificationsService: NotificationsService){
+    constructor(private _NotificationsService: NotificationsService, private _pushNotifications: PushNotificationsService){
 
     }
 
     ngOnInit(){
+        this._pushNotifications.requestPermission();
         this._NotificationsService.success(
             'Protected component',
             'Loading...',

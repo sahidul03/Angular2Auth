@@ -14,11 +14,9 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   name = 'Angular';
   public options = {
-    position: ["bottom", "right"],
+    position: ["bottom", "left"],
     timeOut: 5000,
     lastOnBottom: true
   };
-
-
 
 }

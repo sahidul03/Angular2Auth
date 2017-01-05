@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HouseService } from '../../../services/apiServices/house.service'
+import { NotificationsService, PushNotificationsService } from 'angular2-notifications';
 
 @Component({
     moduleId: module.id,
@@ -13,8 +14,12 @@ export class NewHouseComponent {
     form: any;
     houseCategories: any;
     errors: any;
+    formSubmitFlag: boolean;
 
-    constructor(private _HouseService: HouseService, private _Router: Router){
+    constructor(private _HouseService: HouseService,
+                private _Router: Router,
+                private _NotificationsService: NotificationsService,
+                private _pushNotifications: PushNotificationsService){
         this.form = {
             isFurnished: false,
             ad_type: 'rent',
@@ -30,6 +35,7 @@ export class NewHouseComponent {
             total_floor: 1,
             rent: 500
         };
+        this.formSubmitFlag = true;
         this.getHouseCategories();
     }
 
@@ -51,12 +57,30 @@ export class NewHouseComponent {
 
     submitHouse(){
         console.log(this.form);
+        this.formSubmitFlag = false;
       this._HouseService.createHouse(this.form).subscribe(
           response =>  {
           console.log(response.json());
-            this._Router.navigate(['/home']);
+              this.formSubmitFlag = true;
+              this._Router.navigate(['/home']);
+              this._NotificationsService.success(
+                  'Successfully created new house',
+                  response.json().title,
+                  {
+                      timeOut: 5000,
+                      showProgressBar: true,
+                      pauseOnHover: true,
+                      clickToClose: true,
+                      maxLength: 0
+                  }
+              );
+              //this._pushNotifications.create('Successfully created new house', {body: response.json().title}).subscribe(
+              //        res => console.log(res),
+              //        err => console.log(err)
+              //)
         },
           error => {
+              this.formSubmitFlag = true;
             this.errors = error.json();
           console.log(error.json());
         },

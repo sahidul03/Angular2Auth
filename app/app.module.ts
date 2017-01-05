@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { SimpleNotificationsModule } from 'angular2-notifications';
+import { SimpleNotificationsModule, PushNotificationsModule } from 'angular2-notifications';
 
 import { AppComponent }  from './app.component';
 
@@ -31,7 +31,15 @@ import { HouseService } from './services/apiServices/house.service';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule, HttpModule, AppRoutingModule, SimpleNotificationsModule ],
+  imports:      [
+    BrowserModule,
+    FormsModule,
+    RouterModule,
+    HttpModule,
+    AppRoutingModule,
+    SimpleNotificationsModule,
+    PushNotificationsModule
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
