@@ -15,9 +15,12 @@ import { SignUpComponent } from './components/common/signup.component';
 import { PasswordChangeComponent } from './components/common/users/passwordChange/passwordChange.component';
 import { ProtectedComponent } from './components/others/protected.component';
 import { GetHousesComponent } from './components/houses/getHouses.component';
+import { HouseListComponent } from './components/houses/houseList/houseList.component';
 import { SingleHouseComponent } from './components/houses/singleHouse/singleHouse.component';
 import { NewHouseComponent } from './components/dashboard/newHouse/newHouse.component';
+import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 import { LeftPanelComponent } from './components/dashboard/common/leftPanel/leftPanel.component';
+import { DashboardHouseListComponent } from './components/dashboard/dashboardHouseList/dashboardHouseList.component';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -51,7 +54,10 @@ import { HouseService } from './services/apiServices/house.service';
     SingleHouseComponent,
     PasswordChangeComponent,
     NewHouseComponent,
-    LeftPanelComponent
+    LeftPanelComponent,
+    HouseListComponent,
+    DashboardComponent,
+    DashboardHouseListComponent
   ],
   bootstrap:    [ AppComponent ],
   providers: [ AuthGuard, AuthService, SignInGuard, HouseService ]

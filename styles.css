@@ -9,7 +9,11 @@ h1 {
   margin-bottom: 10px;
   cursor: pointer;
 }
-.house_row:hover{
+.dashboard_house_row{
+  border: 1px solid #dadada;
+  margin-bottom: 10px;
+}
+.shadow_on_hover:hover{
   -webkit-box-shadow: 0.15px 0.15px 23px 0px rgba(97,173,115,1);
   -moz-box-shadow: 0.15px 0.15px 23px 0px rgba(97,173,115,1);
   box-shadow: 0.15px 0.15px 23px 0px rgba(97,173,115,1);
@@ -125,6 +129,11 @@ h1 {
 .margin_bottom15{
   margin-bottom: 15px;
 }
+.icon_margin{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .header_profile_select{
   border: 1px solid #101010;
   background: #101010;

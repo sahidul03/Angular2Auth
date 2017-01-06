@@ -1,0 +1,34 @@
+<div id="wrapper" data-spy="scroll" data-target="#spy" class="">
+    <!-- Sidebar -->
+    <left-panel></left-panel>
+    <!-- Page content -->
+    <div id="page-content-wrapper" class="">
+        <div class="content-header">
+            <h1>
+                All of my houses
+                <a class="btn btn-primary" [routerLink]="['/newHouse']">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Create new house
+                </a>
+            </h1>
+        </div>
+        <div class="page-content inset">
+            <div class="row margin_top15" *ngIf="houses">
+
+                <div class="col-md-9">
+                    <div class="row dashboard_house_row" *ngFor="let house of houses">
+                        <!--<a [routerLink]="['/house', house.id ]">-->
+                            <dashboard-house-list [house]="house" ></dashboard-house-list>
+                        <!--</a>-->
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <a class="thumbnail">
+                        <img class="img-responsive" src="../images/ad.jpg">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="col-md-8">
+    <div class="house_title">
+        <a [routerLink]="['/house', house.id ]">
+            {{ house.title }}
+        </a>
+    </div>
+    <div class="col-md-6 no-padding-left">
+        <span class="label_style"> Bedroom: {{ house.bedroom }}</span><br>
+        <span class="label_style"> Bathroom: {{ house.bathroom }}</span><br>
+        <span class="label_style">Balcony:  {{ house.balcony }}</span><br>
+        <span class="label_style"><span class="glyphicon glyphicon-calendar"></span> {{ house.created_at | date }}</span><br>
+    </div>
+    <div class="col-md-6 no-padding-right border_left">
+        <span class="label_style">Living area:  {{ house.living_area }} sq-ft</span><br>
+        <span class="label_style">Address: <span class="house_address_value"> {{ house.address }}</span></span><br>
+        <span class="house_rent_amount"> Rent:  {{ house.rent }} Tk </span><br>
+    </div>
+    <div class="col-md-12 no-padding-right no-padding-left house_ad_type_and_category">
+        <div class="col-md-6 no-padding-left">For: {{ house.ad_type }} </div>
+        <div class="col-md-6 no-padding-right"> {{house.house_category}} </div>
+    </div>
+</div>
+<div class="col-md-4 house_image_holder">
+    <a class="thumbnail">
+        <img class="img-responsive" src="../images/demoHouse.jpg">
+    </a>
+    <div class="text-right">
+        <span class="icon_margin glyphicon glyphicon-edit cursor_pointer shadow_on_hover"></span>
+        <span class="text-danger icon_margin glyphicon glyphicon-trash cursor_pointer shadow_on_hover"></span>
+    </div>
+</div>

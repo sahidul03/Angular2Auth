@@ -9,3 +9,6 @@
 body {
     padding-top: 50px;
 }
+.thumbnail{
+    margin-bottom: 10px !important;
+}

@@ -29,6 +29,17 @@ export class HouseService {
         );
     }
 
+    getMyHouses(){
+        return this.http.get( this.rootApiUrl + 'api/houses/my_houses', {headers: this.headers})
+            .map(response => {
+                return response;
+            },
+                error => {
+                return error;
+            }
+        );
+    }
+
     getSingleHouse(id: string){
         return this.http.get( this.rootApiUrl + 'api/houses/' + id, {headers: this.headers})
             .map(response => {
