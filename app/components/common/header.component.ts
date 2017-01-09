@@ -15,7 +15,7 @@ export class HeaderComponent{
     }
 
     isAuthenticated(){
-      console.log(this._AuthService.isLoggedIn());
+      //console.log(this._AuthService.isLoggedIn());
         this.loggedInUserInfo = this._AuthService.loggedInUserInfo;
       return this._AuthService.isLoggedIn();
     }

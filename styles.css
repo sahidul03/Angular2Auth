@@ -155,7 +155,9 @@ h1 {
 .position_right_zero{
   right: 0 !important;
 }
-
+.sebm-google-map-container {
+  height: 300px;
+}
 
 
 

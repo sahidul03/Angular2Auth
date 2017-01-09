@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { SimpleNotificationsModule, PushNotificationsModule } from 'angular2-notifications';
 
@@ -41,7 +42,8 @@ import { HouseService } from './services/apiServices/house.service';
     HttpModule,
     AppRoutingModule,
     SimpleNotificationsModule,
-    PushNotificationsModule
+    PushNotificationsModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyA0VbegN-6Uai-dHpw0Ks-k7FaB3yW28KI'})
   ],
   declarations: [
     AppComponent,
