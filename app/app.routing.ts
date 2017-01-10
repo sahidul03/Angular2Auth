@@ -8,6 +8,7 @@ import { ProtectedComponent } from './components/others/protected.component';
 import { SingleHouseComponent } from './components/houses/singleHouse/singleHouse.component';
 import { NewHouseComponent } from './components/dashboard/newHouse/newHouse.component';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import { EditHouseComponent } from './components/dashboard/editHouse/editHouse.component';
 
 import { AuthGuard } from './services/authGuard/auth.guard';
 import { SignInGuard } from './services/signInGuard/signIn.guard';
@@ -54,6 +55,11 @@ const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'editHouse/:id',
+        component: EditHouseComponent,
         canActivate: [AuthGuard]
     }
 ];

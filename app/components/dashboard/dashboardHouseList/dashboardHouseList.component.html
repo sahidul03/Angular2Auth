@@ -25,7 +25,9 @@
         <img class="img-responsive" src="../images/demoHouse.jpg">
     </a>
     <div class="text-right">
-        <span class="icon_margin glyphicon glyphicon-edit cursor_pointer shadow_on_hover"></span>
+        <a [routerLink]="['/editHouse', house.id ]">
+            <span class="icon_margin glyphicon glyphicon-edit cursor_pointer shadow_on_hover"></span>
+        </a>
         <span class="text-danger icon_margin glyphicon glyphicon-trash cursor_pointer shadow_on_hover"></span>
     </div>
 </div>

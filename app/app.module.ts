@@ -22,6 +22,8 @@ import { NewHouseComponent } from './components/dashboard/newHouse/newHouse.comp
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 import { LeftPanelComponent } from './components/dashboard/common/leftPanel/leftPanel.component';
 import { DashboardHouseListComponent } from './components/dashboard/dashboardHouseList/dashboardHouseList.component';
+import { EditHouseComponent } from './components/dashboard/editHouse/editHouse.component';
+
 
 
 import { AppRoutingModule } from './app.routing';
@@ -59,7 +61,9 @@ import { HouseService } from './services/apiServices/house.service';
     LeftPanelComponent,
     HouseListComponent,
     DashboardComponent,
-    DashboardHouseListComponent
+    DashboardHouseListComponent,
+    EditHouseComponent
+
   ],
   bootstrap:    [ AppComponent ],
   providers: [ AuthGuard, AuthService, SignInGuard, HouseService ]

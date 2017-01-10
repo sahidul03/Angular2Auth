@@ -158,6 +158,10 @@ h1 {
 .sebm-google-map-container {
   height: 300px;
 }
+.text_area_min_height{
+  height: 170px !important;
+  resize: none;
+}
 
 
 

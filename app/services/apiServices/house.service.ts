@@ -73,4 +73,15 @@ export class HouseService {
       );
     }
 
+    updateHouse(id: string, data: any){
+        return this.http.put(this.rootApiUrl + 'api/houses/' + id, {house: data}, {headers: this.headers})
+            .map(response => {
+                return response;
+            },
+                error => {
+                return error;
+            }
+        );
+    }
+
 }

@@ -62,7 +62,7 @@ export class NewHouseComponent {
           response =>  {
           console.log(response.json());
               this.formSubmitFlag = true;
-              this._Router.navigate(['/home']);
+              this._Router.navigate(['/dashboard']);
               this._NotificationsService.success(
                   'Successfully created new house',
                   response.json().title,

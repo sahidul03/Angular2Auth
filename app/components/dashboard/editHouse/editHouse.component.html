@@ -5,11 +5,11 @@
     <div id="page-content-wrapper" class="">
         <div class="content-header">
             <h1>
-                Create a new house
+                Edit house
             </h1>
         </div>
         <div class="page-content inset">
-            <div class="jumbotron">
+            <div *ngIf="form" class="jumbotron">
                 <form  (ngSubmit)="submitHouse()">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
@@ -71,14 +71,14 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
                             <div class="form-group">
-                                <label for="bed_room">No of bed room</label>
+                                <label for="bedroom">No of bed room</label>
                                 <input  type="number"
-                                        id="bed_room"
-                                        name="form.bed_room"
-                                        [(ngModel)]="form.bed_room"
+                                        id="bedroom"
+                                        name="form.bedroom"
+                                        [(ngModel)]="form.bedroom"
                                         class="form-control"
                                         placeholder="No of bed room">
-                                <div *ngIf="errors && errors.bed_room && errors.bed_room.length > 0 " class="alert alert-danger">
+                                <div *ngIf="errors && errors.bedroom && errors.bedroom.length > 0 " class="alert alert-danger">
                                     <span>Bed room {{ errors.bed_room[0] }}</span>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" [disabled]="!formSubmitFlag" class="btn btn-primary">Create house</button>
+                    <button type="submit" [disabled]="!formSubmitFlag" class="btn btn-primary">Update house</button>
                 </form>
             </div>
         </div>
