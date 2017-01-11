@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
-import { Router, params, ActivatedRoute } from '@angular/router';
+import { Router, Params, ActivatedRoute } from '@angular/router';
 import { HouseService } from '../../../services/apiServices/house.service'
 import { NotificationsService, PushNotificationsService } from 'angular2-notifications';
 
@@ -23,21 +23,6 @@ export class EditHouseComponent implements OnInit{
                 private _NotificationsService: NotificationsService,
                 private _pushNotifications: PushNotificationsService,
                 private _ActivatedRoute: ActivatedRoute){
-        //this.form = {
-        //    isFurnished: false,
-        //    ad_type: 'rent',
-        //    house_category_id: '',
-        //    bed_room: 1,
-        //    total_room: 1,
-        //    bathroom: 1,
-        //    balcony: 0,
-        //    car_parking: 0,
-        //    living_area: 200,
-        //    land_size: 200,
-        //    floor: 1,
-        //    total_floor: 1,
-        //    rent: 500
-        //};
         this.formSubmitFlag = true;
         this.getHouseCategories();
     }
@@ -53,7 +38,10 @@ export class EditHouseComponent implements OnInit{
                 response =>  {
                 console.log(response.json());
                 this.form = response.json();
-            },
+                    if(this.form.editable == false){
+                        this._Router.navigate(['/dashboard']);
+                    }
+                        },
                 error => {
                 console.log(error.json());
             },
@@ -66,9 +54,6 @@ export class EditHouseComponent implements OnInit{
                 response =>  {
                 console.log(response.json());
                 this.houseCategories = response.json();
-                //if(this.houseCategories.length > 0){
-                //    this.form.house_category_id = this.houseCategories[0].id;
-                //}
             },
                 error => {
                 console.log(error.json());

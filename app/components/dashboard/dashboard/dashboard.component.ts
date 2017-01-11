@@ -12,8 +12,54 @@ import { NotificationsService, PushNotificationsService } from 'angular2-notific
 
 export class DashboardComponent {
     houses: any;
-    constructor(private _HouseService: HouseService){
+    activeDeleteHouse: any;
+
+    constructor(private _HouseService: HouseService, private _NotificationsService: NotificationsService){
         this.getMyHouses();
+    }
+
+    setDeleteId(house: any){
+        this.activeDeleteHouse = house;
+    }
+
+    deleteHouse(){
+        this._HouseService.deleteHouse(this.activeDeleteHouse.id).subscribe(
+                response =>  {
+                console.log(response.json());
+                   var index = this.houses.indexOf(this.activeDeleteHouse);
+                    if (index > -1) {
+                        this.houses.splice(index, 1);
+                    }
+                this._NotificationsService.success(
+                    'Deleted',
+                    'Successfully deleted this house.',
+                    'error',
+                    {
+                        timeOut: 5000,
+                        showProgressBar: true,
+                        pauseOnHover: true,
+                        clickToClose: true,
+                        maxLength: 0
+                    }
+                );
+            },
+                error => {
+                console.log(error.json());
+                    this._NotificationsService.success(
+                        'Something went wrong!',
+                        'House was not deleted...',
+                        'error',
+                        {
+                            timeOut: 5000,
+                            showProgressBar: true,
+                            pauseOnHover: true,
+                            clickToClose: true,
+                            maxLength: 0
+                        }
+                    );
+            },
+            function() { console.log("Getting all houses")}
+        );
     }
 
     getMyHouses(){

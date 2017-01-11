@@ -162,7 +162,9 @@ h1 {
   height: 170px !important;
   resize: none;
 }
-
+.form_color{
+  color: cadetblue;
+}
 
 
 

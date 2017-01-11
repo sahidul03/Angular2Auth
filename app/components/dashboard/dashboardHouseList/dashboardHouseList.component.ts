@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -9,6 +9,11 @@ import { Component, Input } from '@angular/core';
 
 export class DashboardHouseListComponent {
     @Input() house: any;
+    @Output() setDeleteId = new EventEmitter<any>();
+
+    setDeleteIdFromChild(house: any) {
+        this.setDeleteId.emit(house);
+    }
 
     constructor(){
     }

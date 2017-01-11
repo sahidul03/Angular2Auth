@@ -84,4 +84,15 @@ export class HouseService {
         );
     }
 
+    deleteHouse(id: string){
+        return this.http.delete(this.rootApiUrl + 'api/houses/' + id, {headers: this.headers})
+            .map(response => {
+                return response;
+            },
+                error => {
+                return error;
+            }
+        );
+    }
+
 }
