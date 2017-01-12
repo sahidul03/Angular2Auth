@@ -12,7 +12,7 @@ import { AgmCoreModule, MouseEvent } from 'angular2-google-maps/core';
 export class ProtectedComponent  implements OnInit{
 
     // google maps zoom level
-    zoom: number = 8;
+    zoom: number = 14;
 
     // initial center position for the map
     lat: number = 51.673858;
@@ -35,29 +35,41 @@ export class ProtectedComponent  implements OnInit{
     }
 
     markers: marker[] = [
-        {
-            lat: 51.673858,
-            lng: 7.815982,
-            label: 'A',
-            draggable: true
-        },
-        {
-            lat: 51.373858,
-            lng: 7.215982,
-            label: 'B',
-            draggable: false
-        },
-        {
-            lat: 51.723858,
-            lng: 7.895982,
-            label: 'C',
-            draggable: true
-        }
+        //{
+        //    lat: 51.673858,
+        //    lng: 7.815982,
+        //    label: 'A',
+        //    draggable: true
+        //},
+        //{
+        //    lat: 51.373858,
+        //    lng: 7.215982,
+        //    label: 'B',
+        //    draggable: false
+        //},
+        //{
+        //    lat: 51.723858,
+        //    lng: 7.895982,
+        //    label: 'C',
+        //    draggable: true
+        //}
     ];
 
     constructor(private _NotificationsService: NotificationsService, private _pushNotifications: PushNotificationsService){
 
     }
+
+  setPosition(position){
+    var centerPoint = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+      label: 'A',
+      draggable: true
+    };
+    this.markers.push(centerPoint);
+    this.lat = position.coords.latitude;
+    this.lng = position.coords.longitude;
+  }
 
     ngOnInit(){
         this._pushNotifications.requestPermission();
@@ -71,8 +83,14 @@ export class ProtectedComponent  implements OnInit{
                 clickToClose: true,
                 maxLength: 0
             }
-        )
+        );
+      if(!!navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
+
+      }
     }
+
+
 }
 
 // just an interface for type safety.

@@ -33,7 +33,6 @@ export class DashboardComponent {
                 this._NotificationsService.success(
                     'Deleted',
                     'Successfully deleted this house.',
-                    'error',
                     {
                         timeOut: 5000,
                         showProgressBar: true,
@@ -48,7 +47,6 @@ export class DashboardComponent {
                     this._NotificationsService.success(
                         'Something went wrong!',
                         'House was not deleted...',
-                        'error',
                         {
                             timeOut: 5000,
                             showProgressBar: true,
